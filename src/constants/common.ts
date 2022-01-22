@@ -1,0 +1,4 @@
+export const LAYOUT = {
+  PAGE_LAYOUT: 'PAGE_LAYOUT',
+  ACCOUNT_LAYOUT: 'ACCOUNT_LAYOUT',
+}

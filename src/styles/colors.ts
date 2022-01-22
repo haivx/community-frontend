@@ -11,5 +11,5 @@ export const colors = {
   text: '#1C2C42',
   textBlur: '#575E6B',
   sidebar: '#E8F7F3',
-  background: '#fff',
+  background: '#fdfdfd',
 };
