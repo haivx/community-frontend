@@ -19,7 +19,7 @@ const HomePage = () => (
           </b>
           
         </p>
-        <p>That's what a Software engineer need to be and I'm on the way to achieve</p>
+        <p>That's what a Software engineer need to be and I'm on the way to achieve ^^</p>
       </Information>
     </Header>
   </div>
