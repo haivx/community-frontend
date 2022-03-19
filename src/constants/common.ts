@@ -5,6 +5,7 @@ export const LAYOUT = {
 
 export const CONFIG_APP = {
   BASE_URL: process.env.BASE_URL,
+  API_URL: process.env.API_URL,
 }
 
 export const END_POINT_API = {

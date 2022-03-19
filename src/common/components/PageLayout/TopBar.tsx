@@ -26,10 +26,10 @@ const TopBar = () => {
       <TopBarWrapper>
         <LogoWrapper>Liam Vo</LogoWrapper>
         <MenuWrapper>
-          <a>Project</a>
-          <a>BlockChain</a>
-          <a>Web development</a>
-          <a>Resources</a>
+          <a href="#section" >Project</a>
+          <a href="#section" >BlockChain</a>
+          <a href="#section" >Web development</a>
+          <a href="#section" >Resources</a>
         </MenuWrapper>
       </TopBarWrapper>
     </LineWrapper>
