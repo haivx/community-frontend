@@ -1,8 +1,8 @@
 FROM node:14-alpine as builder
 
-WORKDIR '/app'
+WORKDIR /app
 
-COPY package.json .
+COPY package.json package-lock.json ./
 
 RUN npm install
 
@@ -10,10 +10,13 @@ COPY . .
 
 RUN npm run build
 
+# khac builder
 FROM nginx
 
-EXPOSE 5000
+EXPOSE 80
 
 COPY ./nginx/default.conf etc/nginx/conf.d/default.conf
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
+
+CMD ["nginx", "-g", "daemon off;"]
