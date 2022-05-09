@@ -6,4 +6,5 @@ export const routes = {
   REGISTER: '/register',
   PRIVATE: '/admin/private',
   FORBIDDEN: '/forbidden',
+  NOTFOUND: "/404"
 }

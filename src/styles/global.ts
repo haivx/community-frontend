@@ -38,12 +38,15 @@ export const globalStyle = css`
   */
   body {
     font-family: BeVietnamPro, sans-serif;
-    line-height: 1.5rem;
+    line-height: 1.5;
     height: 100%;
     -webkit-font-smoothing: antialiased;
   }
   :not(.scroll-content)::-webkit-scrollbar {
     width: 0;
     background: transparent;
+  }
+  iframe {
+    pointer-events: none;
   }
 `;

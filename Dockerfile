@@ -10,7 +10,6 @@ COPY . .
 
 RUN npm run build
 
-# khac builder
 FROM nginx
 
 EXPOSE 80

@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosRequestHeaders } from "axios";
 import qs from "query-string";
-import { CONFIG_APP } from "@constants";
+import { CONFIG_APP } from "@constants/common";
 
 const instance: AxiosRequestConfig = {
   baseURL: CONFIG_APP.API_URL,

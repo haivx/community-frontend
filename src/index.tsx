@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Global as GlobalStyle, ThemeProvider } from '@emotion/react';
 
-import './index.css';
 import App from './App';
 import { ToastContainer } from 'react-toastify';
 import { globalStyle, theme } from './styles';

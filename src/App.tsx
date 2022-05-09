@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { routes } from './constants/index'
-import { Dashboard, HomePage } from './pages'
+import { Dashboard, HomePage, LoginPage, NotFoundPage } from './pages'
 import { PublicRouter, PrivateRouter } from './AuthRouters'
 
 const Router = () => {
@@ -19,7 +19,15 @@ const Router = () => {
         path={routes.SIGNIN}
         element={
           <PublicRouter title="Sign in">
-            <HomePage />
+            <LoginPage />
+          </PublicRouter>
+        }
+      />
+      <Route
+        path={routes.NOTFOUND}
+        element={
+          <PublicRouter title="Not Found">
+            <NotFoundPage />
           </PublicRouter>
         }
       />
@@ -40,7 +48,7 @@ const Router = () => {
           </PrivateRouter>
         }
       />
-      <Route path="*" element={<Navigate to={routes.SIGNIN} replace />} />
+      <Route path="*" element={<Navigate to={routes.NOTFOUND} replace />} />
     </Routes>
   )
 }
