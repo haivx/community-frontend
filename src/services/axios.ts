@@ -3,7 +3,7 @@ import qs from "query-string";
 import { CONFIG_APP } from "@constants/common";
 
 const instance: AxiosRequestConfig = {
-  baseURL: CONFIG_APP.API_URL,
+  baseURL: CONFIG_APP.BASE_URL,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",

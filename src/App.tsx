@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { routes } from './constants/index'
-import { Dashboard, HomePage, LoginPage, NotFoundPage } from './pages'
+import { BlogPage, Dashboard, HomePage, LoginPage, NotFoundPage } from './pages'
 import { PublicRouter, PrivateRouter } from './AuthRouters'
 
 const Router = () => {
@@ -28,6 +28,14 @@ const Router = () => {
         element={
           <PublicRouter title="Not Found">
             <NotFoundPage />
+          </PublicRouter>
+        }
+      />
+      <Route
+        path={routes.BLOG}
+        element={
+          <PublicRouter title="Blog Page">
+            <BlogPage />
           </PublicRouter>
         }
       />

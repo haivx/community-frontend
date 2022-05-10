@@ -1,3 +1,5 @@
+import 'antd/dist/antd.less';
+import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Global as GlobalStyle, ThemeProvider } from '@emotion/react';

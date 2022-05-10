@@ -202,14 +202,13 @@ export const FormContainerWrapper = styled.div`
   }
 
   form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     padding: 0 5rem;
     overflow: hidden;
     grid-row: 1 / 2;
     grid-column: 1 / 2;
+    .ant-form-item {
+      max-width: 600px;
+    }
   }
   .sign-in-form {
     z-index: 2;
@@ -240,8 +239,13 @@ export const FormContainerWrapper = styled.div`
     line-height: 55px;
     color: #acacac;
     font-size: 1.1rem;
+  }.anticon {
+    text-align: center;
+    line-height: 55px;
+    color: #acacac;
+    font-size: 1.1rem;
   }
-  input {
+  /* input {
     background: none;
     outline: none;
     border: none;
@@ -253,7 +257,7 @@ export const FormContainerWrapper = styled.div`
       color: #aaa;
       font-weight: 500;
     }
-  }
+  } */
   .btn {
     width: 150px;
     height: 49px;

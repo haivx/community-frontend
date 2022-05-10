@@ -7,7 +7,7 @@ const PageLayout = ({ children, title }: any) => (
     <Helmet>
       <title>{title}</title>
     </Helmet>
-    {/* <TopBar /> */}
+    <TopBar />
     <Container>
       <div>{children}</div>
     </Container>

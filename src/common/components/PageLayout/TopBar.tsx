@@ -8,7 +8,14 @@ const TopBarWrapper = styled.div`
   max-width: calc(800px - (30px * 2));
 `
 const LineWrapper = styled.div`
+  box-shadow: 0 5px 20px -10px #000;
   border-bottom: 1px solid #e8e8e8;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 10;
 `
 const LogoWrapper = styled.div`
   font-size: 25px;
@@ -26,10 +33,12 @@ const TopBar = () => {
       <TopBarWrapper>
         <LogoWrapper>Liam Vo</LogoWrapper>
         <MenuWrapper>
-          <a href="#section" >Project</a>
+          <a href="#section">Project</a>
+          <a href="#section">Blog</a>
+          {/* <a href="#section" >Project</a>
           <a href="#section" >BlockChain</a>
           <a href="#section" >Web development</a>
-          <a href="#section" >Resources</a>
+          <a href="#section" >Resources</a> */}
         </MenuWrapper>
       </TopBarWrapper>
     </LineWrapper>
