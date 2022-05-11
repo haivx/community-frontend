@@ -34,7 +34,7 @@ const TopBar = () => {
         <LogoWrapper>Liam Vo</LogoWrapper>
         <MenuWrapper>
           <a href="#section">Project</a>
-          <a href="#section">Blog</a>
+          <a href="/blog">Blog</a>
           {/* <a href="#section" >Project</a>
           <a href="#section" >BlockChain</a>
           <a href="#section" >Web development</a>

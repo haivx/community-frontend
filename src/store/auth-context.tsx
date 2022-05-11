@@ -1,6 +1,7 @@
 import React, { useState, createContext } from 'react'
-import { User, SignInParams } from '@model/auth';
-import {onSignIn} from "@services/auth"
+import { User, SignInParams } from '@model/auth'
+import { onSignIn } from '@services/auth'
+import { save, load } from '@common/utils/storage'
 
 interface AuthContextType {
   user: any
@@ -10,16 +11,23 @@ interface AuthContextType {
 export const AuthContext = createContext<AuthContextType>(null!)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  let [user, setUser] = useState<User>(null!)
-
-  const signIn = async (data: SignInParams) => {
-    try {
-        const response = await onSignIn(data);
-        console.log(response)
-    } catch(err) {
-        console.log(err)
-    }
-  }
+  let [user, setUser] = useState<User>(load("user"));
+  const signIn = (data: SignInParams): Promise<void> =>
+    new Promise((resolve, reject) => {
+      onSignIn(data)
+        .then((res) => {
+          const dataUser = res.data;
+          save('user', dataUser);
+          setUser(dataUser);
+          resolve()
+        })
+        .catch((error) => {
+          if (error.response) {
+            return reject(error.response.data.message)
+          }
+          reject(error)
+        })
+    })
 
   const value = {
     user,

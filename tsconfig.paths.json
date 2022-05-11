@@ -9,7 +9,8 @@
       "@styles/*": ["src/styles/*"],
       "@routers/*": ["src/routers"],
       "@services/*": ["src/services/*"],
-      "@model/*": ["src/model/*"]
+      "@model/*": ["src/model/*"],
+      "@store/*": ["src/store/*"]
     }
   }
 }

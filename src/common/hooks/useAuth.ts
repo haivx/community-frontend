@@ -1,5 +1,5 @@
 import React from 'react'
-import { AuthContext } from '../../index';
+import { AuthContext } from '@store/auth-context';
 
 export function useAuth() {
   return React.useContext(AuthContext);

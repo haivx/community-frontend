@@ -1,11 +1,15 @@
 import { useState } from 'react'
-import { Form, Input, Button, Checkbox } from 'antd'
+import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import { useNavigate } from "react-router-dom";
+import { Alert } from "@common/components"
 import { LogInImg, RegisterImg } from '@assets/login'
-import { onSignIn } from '@services/auth'
+import { useAuth } from "@common/hooks"
 import { Wrapper, FormContainerWrapper, PanelsContainerWrapper } from './styles'
 
 const LoginPage = () => {
+  const auth = useAuth();
+  const navigate = useNavigate();
   const [isSignIn, setIsSignIn] = useState('signin')
   const [loading, setLoading] = useState(false)
 
@@ -16,7 +20,13 @@ const LoginPage = () => {
   const onFinish = async (values: any) => {
     try {
       setLoading(true)
-      await onSignIn(values)
+      await auth.signIn(values)
+      navigate("/admin", { replace: true });
+    } catch(error) {
+      Alert({
+        message: error,
+        type: "error"
+      });
     } finally {
       setLoading(false)
     }
@@ -39,7 +49,7 @@ const LoginPage = () => {
               />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" htmlType="submit" className="login-form-button">
+              <Button type="primary" htmlType="submit" className="login-form-button" loading={loading}>
                 Sign In
               </Button>
             </Form.Item>

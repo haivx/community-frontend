@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react'
-import { Navigate, useLocation, Outlet } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
 import { PageLayout } from './common/components'
 import { LAYOUT } from './constants'
 import { useAuth } from './common/hooks'
@@ -13,26 +13,31 @@ interface RouterProps {
   children?: ReactNode
 }
 
-export const PublicRouter = ({ children, title }: RouterProps) => <PageLayout title={title}>{children}</PageLayout>
+export const PublicRouter = ({ children, title }: RouterProps) => {
+  const auth = useAuth()
+  if (auth.user) return <Navigate to="/admin" replace={true} />
 
-export const PrivateRouter: FC<RouterProps> = ({ title, path, layout = LAYOUT.PAGE_LAYOUT, permission, action = 'ACTIONS.VIEW' }) => {
+  return  <PageLayout title={title}>{children}</PageLayout>
+}
+
+export const PrivateRouter: FC<RouterProps> = ({ title, children, layout = LAYOUT.PAGE_LAYOUT, permission, action = 'ACTIONS.VIEW' }) => {
   const auth = useAuth()
   const location = useLocation()
   if (!auth.user) return <Navigate to="/sign-in" state={{ from: location }} />
 
-  let RenderLayout: JSX.Element
+  let RenderLayout: JSX.Element = <div />;
   switch (layout) {
     case LAYOUT.ACCOUNT_LAYOUT:
       RenderLayout = (
         <PageLayout title={title}>
-          <Outlet />
+          {children}
         </PageLayout>
       )
       break
     default:
       RenderLayout = (
         <PageLayout title={title}>
-          <Outlet />
+          {children}
         </PageLayout>
       )
       break
