@@ -1,39 +1,13 @@
-import { Header, Information } from './styles'
-// import Avatar from '../../assets/avatar.jpeg'
+import { Link } from 'react-router-dom'
+import { Wrapper, Information } from './styles'
 
 const HomePage = () => (
-    <Header>
+    <Wrapper>
       <Information>
-          <div className="left">
-            {/* <form action="#">
-              <div className="form-inner">
-                <div className="form-group">
-                  <label htmlFor="first_name">First Name</label>
-                  <input type="text" id="first_name" placeholder='Create first name'></input>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="last_name">Last Name</label>
-                  <input type="text" id="last_name" placeholder='Create last name' ></input>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="last_name">Last Name</label>
-                  <input type="text" id="last_name" placeholder='Create last name' ></input>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="last_name">Last Name</label>
-                  <input type="text" id="last_name" placeholder='Create last name' ></input>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="last_name">Last Name</label>
-                  <input type="text" id="last_name" placeholder='Create last name' ></input>
-                </div>
-              </div>
-              <div className="remember"><input type="checkbox" name="R emember Me" id="" /><button>Create account</button></div>
-            </form> */}
-          </div>
-          <div className="right"></div>
+          No content here. But dont be worry.<br />
+          I have plan B. <br />Just relax and read some articles in  <Link to='/blog' className='nav-link'>blog</Link> screen first.
       </Information>
-    </Header>
+    </Wrapper>
 )
 
 export default HomePage

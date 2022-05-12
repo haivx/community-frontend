@@ -7,5 +7,6 @@ export const routes = {
   PRIVATE: '/admin/private',
   FORBIDDEN: '/forbidden',
   BLOG: "/blog",
-  NOTFOUND: "/404"
+  NOTFOUND: "/404",
+  CREATE_POST: "/admin/create-post"
 }

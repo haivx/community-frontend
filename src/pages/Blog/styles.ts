@@ -28,6 +28,7 @@ export const ArticleWrapper = styled.article`
 `
 
 export const SectionWrapper = styled.section`
+  margin-top: 20px;
   > h2 {
     margin-bottom: 10px;
     color: #2371ff;

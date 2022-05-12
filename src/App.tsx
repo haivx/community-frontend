@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { routes } from './constants/index'
 import { BlogPage, Dashboard, HomePage, LoginPage, NotFoundPage } from './pages'
 import { PublicRouter, PrivateRouter } from './AuthRouters'
+import CreatePost from '@pages/CreatePost'
 
 const Router = () => {
   return (
@@ -53,6 +54,14 @@ const Router = () => {
         element={
           <PrivateRouter>
             <Dashboard />
+          </PrivateRouter>
+        }
+      />
+      <Route
+        path={routes.CREATE_POST}
+        element={
+          <PrivateRouter>
+            <CreatePost />
           </PrivateRouter>
         }
       />

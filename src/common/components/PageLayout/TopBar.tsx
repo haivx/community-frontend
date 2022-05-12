@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
 
 const TopBarWrapper = styled.div`
@@ -31,7 +32,11 @@ const TopBar = () => {
   return (
     <LineWrapper>
       <TopBarWrapper>
-        <LogoWrapper>Liam Vo</LogoWrapper>
+        <LogoWrapper>
+          <Link to="/" className="nav-link">
+            Liam Vo
+          </Link>
+        </LogoWrapper>
         <MenuWrapper>
           <a href="#section">Project</a>
           <a href="/blog">Blog</a>

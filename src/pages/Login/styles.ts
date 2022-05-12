@@ -6,6 +6,14 @@ export const Wrapper = styled.div`
   min-height: 100vh;
   background-color: #fff;
   overflow: hidden;
+
+
+  .login-form-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
   &::before {
     content: '';
     position: absolute;

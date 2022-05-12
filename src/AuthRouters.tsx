@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
-import { PageLayout } from './common/components'
+import { PageLayout, PageAdminLayout } from './common/components'
 import { LAYOUT } from './constants'
 import { useAuth } from './common/hooks'
 
@@ -36,9 +36,9 @@ export const PrivateRouter: FC<RouterProps> = ({ title, children, layout = LAYOU
       break
     default:
       RenderLayout = (
-        <PageLayout title={title}>
+        <PageAdminLayout title={title}>
           {children}
-        </PageLayout>
+        </PageAdminLayout>
       )
       break
   }
