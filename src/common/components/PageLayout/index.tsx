@@ -6,11 +6,11 @@ import { Wrapper, Container, PageWrapper } from './style'
 
 const PageLayout = ({ children, title }: any) => {
   const location = useLocation()
+  //@ts-ignore
+  const helmet = <Helmet><title>{title}</title></Helmet>
   return (
     <Wrapper>
-      <Helmet>
-        <title>{title}</title>
-      </Helmet>
+      {helmet}
       {location.pathname !== routes.SIGNIN ? (
         <PageWrapper>
           <TopBar />

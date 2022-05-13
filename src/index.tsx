@@ -4,7 +4,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { ToastContainer } from 'react-toastify'
 import { Global as GlobalStyle, ThemeProvider } from '@emotion/react'
-import { HelmetProvider } from 'react-helmet-async'
 
 import { AuthProvider } from '@store/auth-context'
 import { PostContextProvider } from '@store/post-context'
@@ -19,9 +18,7 @@ ReactDOM.render(
     <AuthProvider>
       <PostContextProvider>
         <ThemeProvider theme={theme}>
-          <HelmetProvider>
             <App />
-          </HelmetProvider>
           <ToastContainer autoClose={3000} />
         </ThemeProvider>
       </PostContextProvider>

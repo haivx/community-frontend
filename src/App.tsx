@@ -3,6 +3,7 @@ import { routes } from './constants/index'
 import { BlogPage, Dashboard, HomePage, LoginPage, NotFoundPage } from './pages'
 import { PublicRouter, PrivateRouter } from './AuthRouters'
 import CreatePost from '@pages/CreatePost'
+import PreviewPost from '@pages/PreviewPost'
 
 const Router = () => {
   return (
@@ -62,6 +63,14 @@ const Router = () => {
         element={
           <PrivateRouter>
             <CreatePost />
+          </PrivateRouter>
+        }
+      />
+      <Route
+        path={routes.PREVIEW_POST}
+        element={
+          <PrivateRouter>
+            <PreviewPost />
           </PrivateRouter>
         }
       />

@@ -39,7 +39,7 @@ const TopBar = () => {
         </LogoWrapper>
         <MenuWrapper>
           <a href="#section">Project</a>
-          <a href="/blog">Blog</a>
+          <a href="http">Blog</a>
           {/* <a href="#section" >Project</a>
           <a href="#section" >BlockChain</a>
           <a href="#section" >Web development</a>

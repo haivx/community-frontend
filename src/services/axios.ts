@@ -86,11 +86,3 @@ export const deleteAuth = (
   });
 };
 
-export default {
-  authInstace,
-  noAuthInstace,
-  postAuth,
-  getAuth,
-  putAuth,
-  deleteAuth,
-};

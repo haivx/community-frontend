@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet'
 import { Link, useNavigate } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 import { EditOutlined, CopyOutlined, SettingOutlined, TeamOutlined, SnippetsOutlined } from '@ant-design/icons'
@@ -22,12 +22,11 @@ const PageAdminLayout = ({ children, title }: PageAdminLayoutProps) => {
   const onClickMenu = ({ key }: { key: string }) => {
     navigate(key)
   }
-
+  //@ts-ignore
+  const helmet = <Helmet><title>{title}</title></Helmet>
   return (
     <Wrapper>
-      <Helmet>
-        <title>{title}</title>
-      </Helmet>
+      {helmet}
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <div className="logo" />

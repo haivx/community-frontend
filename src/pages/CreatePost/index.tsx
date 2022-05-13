@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Form, Input, Button, Select } from 'antd'
 import { usePost } from "@common/hooks"
+import { Editor, Alert } from "@common/components";
 import { PostType } from "./types"
 import { Wrapper, HeaderWrapper, BtnActionWrap } from './styles'
 
@@ -9,11 +11,21 @@ const { Option } = Select
 
 
 const CreatePost = () => {
+  const [form] = Form.useForm();
   const postCtx = usePost();
-  const onFinish = (data: PostType) => {
-    console.log({
-      data,
-    })
+  const onFinish = async (data: PostType) => {
+    try {
+      await postCtx.onCreatePost();
+      Alert({
+        message: "Create post success",
+        type: "success"
+      });
+    } catch (error) {
+      Alert({
+        message: error,
+        type: "error"
+      });
+    }
   }
 
   const onChangeVal = (name: string) => (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
@@ -23,35 +35,48 @@ const CreatePost = () => {
     })
   }
 
+  const onChangeEditor = (value: string) => {
+    postCtx.onSetDraftPost({
+      ...postCtx?.draftPost,
+      content: value
+    })
+  }
+
   const formItemLayout = {
     labelCol: { span: 3 },
     wrapperCol: { span: 21 },
   }
+
   return (
     <Wrapper>
-      <Form name="validate_other" {...formItemLayout} onFinish={onFinish}>
+      <Form form={form} name="form_post_create" {...formItemLayout} onFinish={onFinish}>
         <HeaderWrapper>FORM CREATION</HeaderWrapper>
         <Form.Item name="category" label="Category" hasFeedback rules={[{ required: true, message: 'Please select your category!' }]}>
           <Select style={{ width: 240 }} onChange={onChangeVal("category")}>
-            <Option value="story">Chuyện nghề</Option>
-            <Option value="frontEnd">FrontEnd</Option>
+            <Option value="career_story">Chuyện nghề</Option>
+            <Option value="frontend">FrontEnd</Option>
             <Option value="backend">BackEnd</Option>
           </Select>
         </Form.Item>
         <Form.Item label="Title" name="title">
           <Input type="text" placeholder="Title" onChange={onChangeVal("title")} />
         </Form.Item>
+        <Form.Item label="Description" name="description">
+          <TextArea placeholder="description" onChange={onChangeVal("description")} />
+        </Form.Item>
         <Form.Item label="Content" name="content">
-          <TextArea onChange={onChangeVal("content")} rows={15} />
+          <Editor name="content" form={form} onChange={onChangeEditor} />
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 3 }}>
           <BtnActionWrap>
             <Button type="primary" htmlType="submit" size="middle">
               Submit
             </Button>
-            <Button type="primary" ghost size="middle">
-              Preview
-            </Button>
+            <Link target="_blank" to="/admin/post/preview" >
+              <Button type="primary" ghost size="middle">
+                Preview
+              </Button>
+            </Link>
             <Button danger size="middle">
               Cancel
             </Button>
