@@ -11,5 +11,5 @@ export const CONFIG_APP = {
 export const END_POINT_API = {
   login: "/api/auth/signin",
   getTasks: "/api/tasks",
-  post: "/api/post",
+  post: "/api/posts",
 }

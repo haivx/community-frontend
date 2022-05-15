@@ -5,7 +5,7 @@ import { createPost } from '@services/posts/create-post'
 
 interface PostContextType {
   onSetDraftPost: (data: PostType) => void
-  onCreatePost: () => void
+  onCreatePost: (data: PostType) => void
   draftPost: PostType
 }
 
@@ -14,13 +14,11 @@ export const PostContext = createContext<PostContextType>(null!)
 export function PostContextProvider({ children }: { children: React.ReactNode }) {
   const draftPost = load('draftpost') || {}
   const onSetDraftPost = (data: PostType) => {
-    setTimeout(() => {
-      save('draftpost', data)
-    }, 500)
+    save('draftpost', {...draftPost, ...data})
   }
-  const onCreatePost = (): Promise<void> =>
+  const onCreatePost = (data: PostType): Promise<void> =>
     new Promise((resolve, reject) => {
-      return createPost(draftPost)
+      return createPost(data)
         .then(() => {
           resolve()
         })

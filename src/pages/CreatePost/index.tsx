@@ -15,11 +15,12 @@ const CreatePost = () => {
   const postCtx = usePost();
   const onFinish = async (data: PostType) => {
     try {
-      await postCtx.onCreatePost();
+      await postCtx.onCreatePost(data);
       Alert({
         message: "Create post success",
         type: "success"
       });
+      form.resetFields();
     } catch (error) {
       Alert({
         message: error,
@@ -53,9 +54,9 @@ const CreatePost = () => {
         <HeaderWrapper>FORM CREATION</HeaderWrapper>
         <Form.Item name="category" label="Category" hasFeedback rules={[{ required: true, message: 'Please select your category!' }]}>
           <Select style={{ width: 240 }} onChange={onChangeVal("category")}>
-            <Option value="career_story">Chuyện nghề</Option>
-            <Option value="frontend">FrontEnd</Option>
-            <Option value="backend">BackEnd</Option>
+            <Option value="CAREER_STORY">Chuyện nghề</Option>
+            <Option value="FRONT_END">FrontEnd</Option>
+            <Option value="BACK_END">BackEnd</Option>
           </Select>
         </Form.Item>
         <Form.Item label="Title" name="title">
